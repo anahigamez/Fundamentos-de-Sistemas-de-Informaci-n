@@ -1,0 +1,53 @@
+from sympy import*
+from sympy.parsing.sympy_parser import parse_expr
+
+#GAMEZ MUÑOZ ANAHÍ GUADALUPE
+
+x, y = symbols("x y")
+
+#Ingresamos la función
+funcion=input("Ingresa la función\n") 
+
+a=float(input("Ingresa el valor de a\n") )
+b=float(input("Ingresa el valor de b\n") )
+
+xn_1 = float()
+xn = float()
+
+if a < b:
+	xn_1 = a
+	xn = b
+else: 
+	xn = a
+	xn_1 = b
+
+
+def f(x):
+	return funcion
+
+r = diff(f(x), x)	
+
+
+#Ciclo for para sustituir los valores
+for i in range(8):
+	print("step", i)
+
+	#Evaluamos la FUNCIÓN en el valor ingresado xn
+
+	xn1=(parse_expr(f(x)).subs(x,xn))
+
+	#Evaluamos la FUNCIÓN en el valor ingresado n-1
+	xn1_1=(parse_expr(f(x)).subs(x,xn_1))
+
+	#Método de la secante
+	xz=xn-(((xn_1-xn)*xn1)/(xn1_1-xn1))
+	print("xz=", xz)
+	
+	xn_1=xn
+	xn=xz
+
+
+
+
+
+
