@@ -1,0 +1,659 @@
+import sys
+from PyQt5.QtWidgets import (QWidget, QToolTip,
+    QPushButton, QApplication, QLineEdit, QLabel, QSlider, QListWidget, QComboBox)
+from PyQt5.QtGui import QFont
+from PyQt5.QtCore import Qt 
+
+class Example(QWidget):
+
+    def __init__(self):
+        super().__init__()
+        self.distancia=1
+        self.aceleracion=1
+        self.tiempo=1
+        self.velofinal=1
+        self.veloinicial=1
+        self.initUI()
+
+    def clickBoton1 (self):
+        
+        if self.caso==0:
+            Texto=self.miQlineEdith1.text()
+            self.v0=float(Texto)
+            print(str(self.v0))
+
+            print (" Presionaste boton 1", self.v0)
+        #COMENTARIO#self.miQlineEdith.setText(TextoNuevo) 
+       # self.miLabel.setText(TextoNuevo)
+
+            Texto2=self.miQlineEdith2.text()
+            self.vf = float(Texto2)
+            print(str(self.vf))
+
+            Texto3=self.miQlineEdith3.text()
+            self.d = float(Texto3)
+            print(str(self.d))
+
+            if self.z==0:
+                self.veloinicial=self.v0 
+                print(str(self.veloinicial)) 
+
+            elif self.z==1:
+                self.veloinicial=self.v0*0.0833
+                print(str(self.veloinicial)) 
+
+            elif self.z==3: 
+                self.veloinicial=self.v0*0.0254
+                print(str(self.veloinicial)) 
+
+            elif self.z==4:
+                self.veloinicial=self.v0*0.000015782828282828283
+                print(str(self.veloinicial)) 
+
+            elif self.z==5: 
+                self.veloinicial=self.v0*0.000025399999999999997
+                print(str(self.veloinicial)) 
+
+            elif self.z==6:
+                self.veloinicial=self.v0*0.0568
+                print(str(self.veloinicial)) 
+
+            elif self.z==7: 
+                self.veloinicial=self.v0*0.0914 
+                print(str(self.veloinicial)) 
+
+            if self.y==0:
+                self.velofinal=self.vf
+                print(str(self.velofinal))
+            
+            elif self.y==1:
+                self.velofinal=self.vf*0.0833
+                print(str(self.velofinal))
+
+            elif self.y==2:
+                self.velofinal=self.vf*2.54
+                print(str(self.velofinal))
+
+            elif self.y==3:
+                self.velofinal=self.vf*0.254
+                print(str(self.velofinal))
+
+            elif self.y==4:
+                self.velofinal=self.vf*0.000015782828282828283
+                print(str(self.velofinal))
+
+            elif self.y==5:
+                self.velofinal=self.vf*0.000025399999999999997
+                print(str(self.velofinal))
+
+            elif self.y==6:
+                self.velofinal=self.vf*0.0568
+                print(str(self.velofinal))
+
+            elif self.y==7: 
+                self.velofinal=self.vf*0.0914
+                print(str(self.velofinal))
+
+            if self.x==0:
+                self.distancia=self.d 
+                print(str(self.distancia))
+
+            elif self.x==1:
+                self.distancia=self.d/12
+                print(str(self.distancia))
+
+            elif self.x==2:
+                self.distancia=self.d/63360
+                print(str(self.distancia))
+
+            elif self.x==3:
+                self.distancia=self.d*2.54
+                print(str(self.distancia))
+
+            elif self.x==4:
+                self.distancia=self.d/39.37
+                print(str(self.distancia))
+
+            elif self.x==5:
+                self.distancia=self.d/39370
+                print(str(self.distancia))
+
+    
+            self.tiempo1=self.distancia*2
+            self.tiempo2=self.velofinal+self.veloinicial
+            self.tiempo3=self.tiempo1/self.tiempo2
+            print("tiempo=" + str(self.tiempo3))
+           
+            self.aceleracion1=self.velofinal - self.veloinicial
+            self.aceleracion2=self.aceleracion1/self.tiempo3
+            print("Aceleración" + str(self.aceleracion2))
+
+
+        elif self.caso==1:
+            Texto4=self.miQlineEdith4.text()
+            self.a = float(Texto4)
+            print(str(self.a))
+
+            Texto5=self.miQlineEdith5.text()
+            self.t = float(Texto5)        
+            print(str(self.t))
+        
+
+    def clicked(self, qmodelindex):
+        item = self.listwidget.currentItem()
+        print(item.text())
+
+    def CambioSeleccion(self, i):
+        print("Elementos en la lista")
+        for C in range (self.ComboBox1.count()):
+            print(C)
+        print("Elemento seleccionado", self.ComboBox1.currentText(),"Indice", i)    
+
+
+    def CambioSeleccion2(self, i):
+        print("Elementos en la lista")
+        for C in range (self.ComboBox2.count()):
+            print(C)
+        print("Elemento seleccionado", self.ComboBox2.currentText(),"Indice", i)       
+
+
+    def CambioSeleccion3(self, i):
+        print("Elementos en la lista")
+        for C in range (self.ComboBox3.count()):
+            print(C)
+        print("Elemento seleccionado", self.ComboBox3.currentText(),"Indice", i)       
+
+
+    def CambioSeleccion4(self, i):
+        print("Elementos en la lista")
+        for C in range (self.ComboBox4.count()):
+            print(C)
+        print("Elemento seleccionado", self.ComboBox4.currentText(),"Indice", i) 
+
+
+    def CambioSeleccion5(self, i):
+        print("Elementos en la lista")
+        for C in range (self.ComboBox5.count()):
+            print(C)
+        print("Elemento seleccionado", self.ComboBox5.currentText(),"Indice", i)       
+          
+
+    def CambioSeleccion6(self, i):
+        print("Elementos en la lista")
+        for C in range (self.ComboBox6.count()):
+            print(C)
+        print("Elemento seleccionado", self.ComboBox6.currentText(),"Indice", i)       
+          
+
+
+    def initUI(self):
+
+        QToolTip.setFont(QFont('SansSerif', 10))
+
+        #propiedad asociada a la ventana    
+        self.setToolTip('This is a <b>QWidget</b> widget')
+
+
+        self.btn = QPushButton('Calcular', self)
+
+        #Propiedad asociada al boton
+        self.btn.setToolTip('This is a <b>QPushButton</b> widget')
+        #btn.resize(btn.sizeHint())
+        self.btn.resize(100,30)
+        #btn.move(50, 50)
+        #La ubicación del control (boton)
+        self.btn.move(120, 220)
+        self.btn.clicked.connect(self.clickBoton1)
+
+
+
+        self.miLabel = QLabel("V0=", self)
+        self.miLabel.resize(100, 30)
+        self.miLabel.move(50, 40)
+ 
+
+        self.miLabel = QLabel("Vf=", self)
+        self.miLabel.resize(100, 30)
+        self.miLabel.move(50, 75)
+
+
+        self.miLabel = QLabel("d=", self)
+        self.miLabel.resize(100, 30)
+        self.miLabel.move(50, 110)
+
+
+        self.miLabel = QLabel("a=", self)
+        self.miLabel.resize(100, 30)
+        self.miLabel.move(50, 145)
+
+
+        self.miLabel = QLabel("t=", self)
+        self.miLabel.resize(100, 30)
+        self.miLabel.move(50, 180)
+
+        self.ComboBox1 = QComboBox(self)
+        self.ComboBox1.move(10, 10)
+        self.ComboBox1.resize(300, 20)
+        self.ComboBox1.addItem("Calcular a, t; Dados Vo, Vf y d")
+        self.ComboBox1.addItem("Calcular d, t; Dados V0, Vf y a")
+        self.ComboBox1.addItem("Calcular d, a; Dados V0, Vf y t")
+        self.ComboBox1.addItem("Calcular Vf, t; Dados V0, d y a")
+        self.ComboBox1.addItem("Calcular Vf, a; Dados V0, d y t")
+        self.ComboBox1.addItem("Calcular Vf, d; Dados V0, t y a")
+        self.ComboBox1.addItem("Calcular V0, t; Dados Vf, d y a")
+        self.ComboBox1.addItem("Calcular V0, a; Dados Vf, d y t")
+        self.ComboBox1.addItem("Calcular V0, d; Dados Vf, t y a")
+        self.ComboBox1.addItem("Calcular V0, Vf; Dados d, a y t")
+        self.ComboBox1.currentIndexChanged.connect(self.CambioSeleccion)
+
+
+        self.ComboBox2 = QComboBox(self)
+        self.ComboBox2.move(210, 40)
+        self.ComboBox2.resize(80, 30)
+        self.ComboBox2.addItem("pulg/s")
+        self.ComboBox2.addItem("pies/s")
+        self.ComboBox2.addItem("cm/s")
+        self.ComboBox2.addItem("m/s")
+        self.ComboBox2.addItem("mi/s")
+        self.ComboBox2.addItem("km/s")
+        self.ComboBox2.addItem("mi/h")
+        self.ComboBox2.addItem("km/h")
+        self.ComboBox2.currentIndexChanged.connect(self.CambioSeleccion2)
+
+
+        self.ComboBox3 = QComboBox(self)
+        self.ComboBox3.move(210, 75)
+        self.ComboBox3.resize(80, 30)
+        self.ComboBox3.addItem("pulg/s")
+        self.ComboBox3.addItem("pies/s")
+        self.ComboBox3.addItem("cm/s")
+        self.ComboBox3.addItem("m/s")
+        self.ComboBox3.addItem("mi/s")
+        self.ComboBox3.addItem("km/s")
+        self.ComboBox3.addItem("mi/h")
+        self.ComboBox3.addItem("km/h")
+        self.ComboBox3.currentIndexChanged.connect(self.CambioSeleccion3)
+
+
+        self.ComboBox4 = QComboBox(self)
+        self.ComboBox4.move(210, 110)
+        self.ComboBox4.resize(80, 30)
+        self.ComboBox4.addItem("pulg")  
+        self.ComboBox4.addItem("pies")
+        self.ComboBox4.addItem("mi")
+        self.ComboBox4.addItem("cm")
+        self.ComboBox4.addItem("m")
+        self.ComboBox4.addItem("km")
+        self.ComboBox4.currentIndexChanged.connect(self.CambioSeleccion4)
+
+        
+        self.ComboBox5 = QComboBox(self)
+        self.ComboBox5.move(210, 145)
+        self.ComboBox5.resize(90, 30)
+        self.ComboBox5.addItem("pulg/s^2")
+        self.ComboBox5.addItem("pies/s^2")
+        self.ComboBox5.addItem("cm/s^2")
+        self.ComboBox5.addItem("m/s^2")
+        self.ComboBox5.addItem("mi/s^2")
+        self.ComboBox5.addItem("km/s^2")
+        self.ComboBox5.currentIndexChanged.connect(self.CambioSeleccion5)
+
+
+        self.ComboBox6 = QComboBox(self)
+        self.ComboBox6.move(210, 180)
+        self.ComboBox6.resize(90, 30)
+        self.ComboBox6.addItem("s")
+        self.ComboBox6.addItem("min")
+        self.ComboBox6.addItem("hr")
+        self.ComboBox6.currentIndexChanged.connect(self.CambioSeleccion6)
+
+        self.miQlineEdith1 = QLineEdit(self)
+        self.miQlineEdith1.resize(100, 30)
+        self.miQlineEdith1.move(100, 40)   
+
+        self.miQlineEdith2 = QLineEdit(self)
+        self.miQlineEdith2.resize(100, 30)
+        self.miQlineEdith2.move(100, 75) 
+
+        self.miQlineEdith3 = QLineEdit(self)
+        self.miQlineEdith3.resize(100, 30)
+        self.miQlineEdith3.move(100, 110) 
+
+        self.miQlineEdith4 = QLineEdit(self)
+        self.miQlineEdith4.resize(100, 30)
+        self.miQlineEdith4.move(100, 145) 
+
+        self.miQlineEdith5 = QLineEdit(self)
+        self.miQlineEdith5.resize(100, 30)
+        self.miQlineEdith5.move(100, 180) 
+
+        self.setGeometry(300, 300, 500, 300)
+        self.setWindowTitle('Calculadora Movimiento Rectilineo Uniformemente Acelerado')
+        self.show()
+
+    def CambioSeleccion(self, i):
+
+
+        if i==0:
+           self.caso=0  
+           self.miQlineEdith1.setEnabled(True)
+           self.miQlineEdith2.setEnabled(True)
+           self.miQlineEdith3.setEnabled(True)
+           self.miQlineEdith4.setEnabled(False)
+           self.miQlineEdith5.setEnabled(False)
+           
+    
+        elif i==1:
+            self.caso=1  
+            self.miQlineEdith1.setEnabled(True)
+            self.miQlineEdith2.setEnabled(True)
+            self.miQlineEdith3.setEnabled(False)
+            self.miQlineEdith4.setEnabled(True)
+            self.miQlineEdith5.setEnabled(False)
+
+            self.tiempo1=self.velofinal - self.veloinicial
+            self.tiempo2=self.tiempo1/self.aceleracion
+            print("Tiempo:" + str(self.tiempo2))
+
+            self.distancia1 = self.veloinicial + self.velofinal
+            self.distancia2 = 0.5*self.distancia1*self.tiempo2
+            print("distancia1:" + str(self.distancia2))
+
+        elif i==2:
+            self.caso=2  
+            self.miQlineEdith1.setEnabled(True)
+            self.miQlineEdith2.setEnabled(True)
+            self.miQlineEdith3.setEnabled(False)
+            self.miQlineEdith4.setEnabled(False)
+            self.miQlineEdith5.setEnabled(True) 
+
+            self.aceleracion1 = self.velofinal - self.veloinicial  
+            self.aceleracion2 = self.aceleracion1/self.tiempo
+            print("Aceleración = " + str(self.aceleracion2))
+
+            self.distancia1 = self.veloinicial + self.velofinal
+            self.distancia2 = 0.5*self.distancia1*self.tiempo
+            print("distancia = " + str(self.distancia2))
+
+        elif i==3:
+            self.caso=3  
+            self.miQlineEdith1.setEnabled(True)
+            self.miQlineEdith2.setEnabled(False)
+            self.miQlineEdith3.setEnabled(True)
+            self.miQlineEdith4.setEnabled(True)
+            self.miQlineEdith5.setEnabled(False)  
+
+            self.velocidadfinal1 = self.velofinal*self.velofinal 
+            self.velocidadfinal2 = 2*self.aceleracion*self.distancia
+            self.velocidadfinal3 = self.velofinal + self.velocidadfinal2   
+            self.velocidadfinal4 = self.velocidadfinal3*(1/2)
+            print("Velocidad final" + str(self.velocidadfinal4))
+
+
+            self.tiempo1 = self.velofinal - self.veloinicial
+            self.tiempo2 = self.tiempo1 / self.aceleracion
+            print("Tiempo = " + str(self.tiempo2))
+
+
+        elif i==4:
+            self.caso=4  
+            self.miQlineEdith1.setEnabled(True)
+            self.miQlineEdith2.setEnabled(False)
+            self.miQlineEdith3.setEnabled(True)
+            self.miQlineEdith4.setEnabled(False)
+            self.miQlineEdith5.setEnabled(True)        
+
+            self.velocidadfinal1 = self.distancia/self.tiempo
+            self.velocidadfinal2 = 2 * self.velocidadfinal1 
+            self.velocidadfinal3 = self.velocidadfinal2 - self.veloinicial
+            print("Velocidad final = ", str(self.velocidadfinal3))
+
+            self.aceleracion1 = self.velofinal - self.veloinicial
+            self.aceleracion2 = self.aceleracion1 / self.tiempo
+            print("Aceleración = ", str(self.aceleracion2))
+
+
+        elif i==5:
+            self.caso=5  
+            self.miQlineEdith1.setEnabled(True)
+            self.miQlineEdith2.setEnabled(False)
+            self.miQlineEdith3.setEnabled(False)
+            self.miQlineEdith4.setEnabled(True)
+            self.miQlineEdith5.setEnabled(True)
+
+            self.velocidadfinal1 = self.aceleracion*self.tiempo
+            self.velocidadfinal2 = self.velocidadfinal1+self.veloinicial
+            print("Velocidad final = ", str(self.velocidadfinal2))
+
+            self.distancia1 = self.velocidadfinal2 + self.veloinicial
+            self.distancia2 = self.distancia1*0.5*self.tiempo
+            print("Distancia =", str(self.distancia2))
+
+
+        elif i==6:
+            self.caso=6  
+            self.miQlineEdith1.setEnabled(False)
+            self.miQlineEdith2.setEnabled(True)
+            self.miQlineEdith3.setEnabled(True)
+            self.miQlineEdith4.setEnabled(True)
+            self.miQlineEdith5.setEnabled(False)      
+
+            self.velocidadinicial1 = self.velofinal*self.velofinal 
+            self.velocidadinicial2 = 2*self.aceleracion*self.distancia
+            self.velocidadinicial3 = self.velofinal + self.velocidadinicial2   
+            self.velocidadinicial4 = self.velocidadinicial3*(1/2)
+            print("Velocidad final", str(self.velocidadinicial4))
+
+            self.tiempo1 = self.velofinal - self.velocidadinicial4
+            self.tiempo2 = self.tiempo1 / self.aceleracion
+            print("Tiempo = ", str(self.tiempo2))
+        
+
+
+        elif i==7:
+            self.caso=7  
+            self.miQlineEdith1.setEnabled(False)
+            self.miQlineEdith2.setEnabled(True)
+            self.miQlineEdith3.setEnabled(True)
+            self.miQlineEdith4.setEnabled(False)
+            self.miQlineEdith5.setEnabled(True)  
+
+            self.velocidadinicial1 = self.distancia/self.tiempo
+            self.velocidadinicial2 = 2*self.velocidadinicial1
+            self.velocidadinicial3 = self.velocidadinicial2 - self.velofinal
+            print("Velocidad inicial", self.velocidadinicial3)
+
+            self.aceleracion1 = self.velofinal - self.velocidadinicial3
+            self.aceleracion2 = self.aceleracion1/self.tiempo
+            print("Aceleración = ", self.aceleracion2)
+
+
+        elif i==8:
+            self.caso=8  
+            self.miQlineEdith1.setEnabled(False)
+            self.miQlineEdith2.setEnabled(True)
+            self.miQlineEdith3.setEnabled(False)
+            self.miQlineEdith4.setEnabled(True)
+            self.miQlineEdith5.setEnabled(True)    
+
+            self.velocidadinicial1 = self.aceleracion*self.tiempo 
+            self.velocidadinicial2 = self.velofinal - self.velocidadinicial1
+            print("Velocidad inicial", self.velocidadinicial2)
+
+            self.distancia1 = self.velocidadinicial2+self.velofinal
+            self.distancia2 = 0.5*self.distancia1*self.tiempo 
+            print("Distancia = ", self.distancia2)
+
+
+        elif i==9:
+            self.caso=9  
+            self.miQlineEdith1.setEnabled(False)
+            self.miQlineEdith2.setEnabled(False)
+            self.miQlineEdith3.setEnabled(True)
+            self.miQlineEdith4.setEnabled(True)
+            self.miQlineEdith5.setEnabled(True)  
+
+            self.velocidadinicial1 = self.distancia/self.tiempo
+            self.velocidadinicial2 = 0.5*self.aceleracion*self.tiempo
+            self.velocidadinicial3 = self.velocidadfinal1 - self.velocidadinicial2
+            print("Velocidad inicial", self.velocidadinicial3)
+
+            self.velocidadfinal1 = self.aceleracion*self.tiempo
+            self.velocidadfinal2 = self.velocidadfinal1 + self.veloinicial
+            print("Velocidad final", self.velocidadfinal2)
+
+
+
+   #--------------------------------------------------------- 
+    def CambioSeleccion2(self, i):
+        #VELOCIDAD INICIAL
+        if i==0:
+            self.z=0  
+        
+        elif i==1:
+            self.z=1  
+
+        elif i==2:
+            self.z=2    
+
+        elif i==3:
+            self.z=3 
+            
+        elif i==4:
+            self.z=4     
+
+        elif i==5:      
+            self.z=5 
+            
+        elif i==6:
+            self.z=6 
+            
+        elif i==7:
+            self.z=7 
+            
+
+#--------------------------------------------------------------
+    def CambioSeleccion3(self, i):
+        #VELOCIDAD FINAL
+
+        if i==0:
+            self.y=0
+            
+        elif i==1:
+            self.y=1
+            
+        elif i==2:
+            self.y=2
+            
+        elif i==3:
+            self.y=3
+            
+        elif i==4:
+            self.y=4
+            
+        elif i==5:
+            self.y=5
+            
+        elif i==6:
+            self.y=6
+            
+        elif i==7: 
+            self.y=7
+            
+
+#----------------------------------------------------------
+    def CambioSeleccion4(self, i):
+        #DISTANCIA
+        if i==0:
+            self.x=0
+
+        elif i==1:
+            self.x=1
+
+        elif i==2:
+            self.x=2
+
+        elif i==3:
+            self.x=3
+
+        elif i==4:
+            self.x=4
+
+        elif i==5:
+            self.x=5
+
+
+#---------------------------------------------------------
+    def CambioSeleccion5(self, i):
+        #ACELERACIÓN
+        if i==0:
+            #pulg/s^2
+            print("Selección:", i)
+            self.aceleracion=self.a 
+            print(self.aceleracion)
+
+        elif i==1:
+            self.aceleracion=self.a*0.083333333333333 
+            print(self.aceleracion)
+            #pies/s^2"
+            print("Selección:", i)
+
+        elif i==2:
+            #cm/s^2
+            self.aceleracion=self.a*2.54
+            print(self.aceleracion)
+            print("Selección:", i)
+
+        elif i==3:
+            #m/s^2
+            self.aceleracion=self.a*0.0254
+            print(self.aceleracion)
+            print("Selección:", i)
+
+        elif i==4:
+            #mi/s^2
+            self.aceleracion=self.a*0.000015782828282828283
+            print(self.aceleracion)
+            print("Selección:", i)
+
+        elif i==5:
+            #km/s^2
+            self.aceleracion=self.a*0.000025399999999999997
+            print(self.aceleracion)
+            print("Selección:", i)
+    
+#----------------------------------------------------------    
+    def CambioSeleccion6(self, i):
+        #TIEMPO
+
+        if i==0:
+            #SEGUNDOS
+            print("Selección:", i)
+            self.tiempo=self.t
+            print(self.tiempo)
+
+        elif i==1:
+            #MINUTOS
+            self.tiempo=self.t/60
+            print(self.tiempo)
+            print("Selección:", i)
+
+        elif i==2:
+            #HORAS
+            self.tiempo=self.t/3600
+            print(self.tiempo)
+            print("Selección:", i)
+
+
+#------------------------------------------------------------
+
+
+def main():
+
+    app = QApplication(sys.argv)
+    ex = Example()
+    sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()
