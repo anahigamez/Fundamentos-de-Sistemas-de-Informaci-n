@@ -1,1 +1,1 @@
-# Fundamentos-de-Sistemas-de-Informaci-n
+# Fundamentos-de-Sistemas-de-Informacion
